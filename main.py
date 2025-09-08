@@ -55,7 +55,7 @@ def main():
         tools=[available_functions], system_instruction=system_prompt
     )
 
-    max_iters = 20
+    max_iters = 30
 
     for i in range(max_iters):
         response = client.models.generate_content(
