@@ -1,6 +1,7 @@
 import os
 from google.genai import types
 
+
 def get_files_info(working_directory, directory="."):
     abs_working_dir = os.path.abspath(working_directory)
     target_dir = os.path.abspath(os.path.join(working_directory, directory))
@@ -21,7 +22,8 @@ def get_files_info(working_directory, directory="."):
         return "\n".join(files_info)
     except Exception as e:
         return f"Error listing files: {e}"
-    
+
+
 schema_get_files_info = types.FunctionDeclaration(
     name="get_files_info",
     description="Lists files in the specified directory along with their sizes, constrained to the working directory.",

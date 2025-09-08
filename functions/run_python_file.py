@@ -2,6 +2,7 @@ import os
 import subprocess
 from google.genai import types
 
+
 def run_python_file(working_directory, file_path, args=None):
     abs_working_dir = os.path.abspath(working_directory)
     abs_file_path = os.path.abspath(os.path.join(working_directory, file_path))
@@ -34,7 +35,8 @@ def run_python_file(working_directory, file_path, args=None):
         return "\n".join(output) if output else "No output produced."
     except Exception as e:
         return f"Error: executing Python file: {e}"
-    
+
+
 schema_run_python_file = types.FunctionDeclaration(
     name="run_python_file",
     description="Runs a ptyhon file with the python3 interpreter. Accepts additional CLI args as an optional array",
@@ -48,8 +50,8 @@ schema_run_python_file = types.FunctionDeclaration(
             "args": types.Schema(
                 type=types.Type.ARRAY,
                 description="An optional array of strings to be used as the CLI args for the python file",
-                items = types.Schema(
-                    type = types.Type.STRING
+                items=types.Schema(
+                    type=types.Type.STRING
                 )
             ),
         },
